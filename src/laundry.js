@@ -42,7 +42,7 @@ function getMaxPairs(noOfWashes, cleanPile, dirtyPile) {
   })
 
   // get remaining pairs in dirty pile
-  if (noOfWashes) {
+  if (!!noOfWashes) {
     const getDirtyColor = new Set(dirtyPile);
    
     getDirtyColor.forEach(color => {
@@ -50,8 +50,8 @@ function getMaxPairs(noOfWashes, cleanPile, dirtyPile) {
         return;
       }
 
-      const noOfDirtypiles = countFilter(dirtyPile, color);
-      const allowedCapacity = (noOfWashes < noOfDirtypiles ? noOfWashes : noOfDirtypiles) / 2;
+      let noOfDirtypiles = countFilter(dirtyPile, color);
+      let allowedCapacity = (noOfWashes < noOfDirtypiles ? noOfWashes : noOfDirtypiles) / 2;
 
       let colorPairs = Math.floor(allowedCapacity);
       pairs += colorPairs;

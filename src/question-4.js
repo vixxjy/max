@@ -18,7 +18,8 @@ app.use(bodyParser.json());
 
 app.get("/save", async (req, res) => {
     try {
-        let user = await User.create({ ...req.user });
+        let userData = { ...req.user };
+        let user = await User.create(userData);
         return res.status(200).json(user);
     } catch (err) {
         logger.log(err);
