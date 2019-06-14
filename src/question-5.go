@@ -27,10 +27,10 @@ func main() {
 }
 
 func(task * Tasks) Create() error {
-    query: = "insert into tasks (title, user_id) values ($1, $2) returning id, done"
+    query := "insert into tasks (title, user_id) values ($1, $2) returning id, done"
 
         stmt,
-    err: = Db.Prepare(query)
+    err := Db.Prepare(query)
 
     if err != nil {
         panic(err)
