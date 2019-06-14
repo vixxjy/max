@@ -42,7 +42,7 @@ function getMaxPairs(noOfWashes, cleanPile, dirtyPile) {
   })
 
   // get remaining pairs in dirty pile
-  if (noOfWashes < 2) {
+  if (noOfWashes) {
     const getDirtyColor = new Set(dirtyPile);
    
     getDirtyColor.forEach(color => {
