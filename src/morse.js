@@ -65,6 +65,16 @@ Object.freeze(MORSE_CODE);
  */
 function decodeMorse(morseCode) {
   // Your code should go here.
+  return (
+
+      morseCode
+          .trim()
+          .replace(/\s{3}/g, " | ") // Replace all 3 spaces with a delimiter.
+          .replace(/\w+\s{1,}/g, /\s/) // Replace other space combinations with single space.
+          .split(/\s/) // Split code into words based on given space.
+          .map(char => (char === "|" ? " " : MORSE_CODE[char])) // Convert codes into letters.
+          .join("")
+  );
 }
 
 module.exports = decodeMorse;
